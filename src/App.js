@@ -1,9 +1,9 @@
 import React from 'react';
-import CmsHome from "./Presentation/View/CmsHome";
+import View from "./Presentation/View/Home/Administrator/View"
 
 const App = () => {
   return (
-    <CmsHome />
+    <View />
   )
 }
 
