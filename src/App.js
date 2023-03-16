@@ -1,5 +1,5 @@
 import React from 'react';
-import View from "./Presentation/View/Home/Administrator/View"
+import View from "./Presentation/View/Hospital/View"
 
 const App = () => {
   return (

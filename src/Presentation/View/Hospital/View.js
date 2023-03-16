@@ -19,6 +19,8 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import {mainListItems} from './Components/listItem.jsx';
 import { Maximize } from '@mui/icons-material';
+import Table from './Components/Table.jsx';
+
 
 
 function Copyright(props) {
@@ -158,20 +160,7 @@ function DashboardContent() {
         >
           <Toolbar />
           <Container maxWidth="xm" sx={{ mt: 4, mb: 4 }}>
-          <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        '& > :not(style)': {
-          m: 1,
-          width: 1700,
-          height: 700,
-        },
-      }}
-    >
-      <Paper elevation={0} />
-      
-    </Box>
+          <Table/>
             <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
