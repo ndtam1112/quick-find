@@ -1,12 +1,8 @@
 import * as React from 'react'
 import { DataGrid, GridDeleteIcon } from '@mui/x-data-grid'
 import { ButtonGroup, IconButton, Modal } from '@mui/material'
-import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import DetailHospital from './DetailHospital'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -49,6 +45,7 @@ const columns = [
     field: ``,
     width: 150,
     sortable: false,
+    filterable: false,
     renderCell: (params) => {
       const OnClick = (e) => {
         e.stopPropagation() // don't select this row after clicking

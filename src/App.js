@@ -1,9 +1,9 @@
 import React from 'react';
-import View from "./Presentation/View/Hospital/View"
+import ViewHome from "./Presentation/View/Home/ViewHome.jsx"
 
 const App = () => {
   return (
-    <View />
+    <ViewHome />
   )
 }
 

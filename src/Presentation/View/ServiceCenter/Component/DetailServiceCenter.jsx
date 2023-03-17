@@ -1,9 +1,11 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import { styled } from '@mui/material/styles'
+import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Unstable_Grid2'
 import {
   Divider,
@@ -35,7 +37,7 @@ const Root = styled('div')(({ theme }) => ({
   },
 }))
 
-export default function BasicModal() {
+export default function ModalServiceCenter() {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -52,14 +54,20 @@ export default function BasicModal() {
   //     renderData(response.data.districts, 'district')
   //   })
   // }
-  const [hospitalName, setName] = React.useState('Bệnh viện Đa khoa Hồng Ngọc')
-  const [hospitalPhone, setPhone] = React.useState('024 7300 8866')
-  const [hospitalHotline, setHotline] = React.useState('024 7300 8866')
-  const [hospitalEmergency, setEmergency] = React.useState('1900 636 555')
-  const [hospitalAddress, setAddress] = React.useState('Số 55 Yên Ninh')
-  const [hospitalCity, setCity] = React.useState('Hà Nội')
-  const [hospitalDistrict, setDistrict] = React.useState('Quận Ba Đình')
-  const [hospitalWard, setWard] = React.useState('Phường Trúc Bạch')
+  const [servicecenterName, setName] = React.useState(
+    'Trung tâm cấp cứu 115 toàn quốc'
+  )
+  const [servicecenterPhone, setPhone] = React.useState('0704 115 115')
+  const [servicecenterHotline, setHotline] = React.useState('024 7300 8866')
+  const [servicecenterEmergency, setEmergency] = React.useState('1900 636 555')
+  const [servicecenterAddress, setAddress] = React.useState(
+    '03 Đường 35A Trịnh Quang Nghị'
+  )
+  const [servicecenterCity, setCity] = React.useState('TP Hồ Chí Minh')
+  const [servicecenterDistrict, setDistrict] = React.useState('Quận 8')
+  const [servicecenterWard, setWard] = React.useState('Phường 7')
+  const [servicecenterState, setState] = React.useState('Đã duyệt')
+  const [servicecenterCertificate, setCer] = React.useState('')
 
   const handleChangeCity = (event) => {
     setCity(event.target.value)
@@ -90,7 +98,7 @@ export default function BasicModal() {
                   required
                   id="outlined-required"
                   label="Tên bệnh viện"
-                  value={hospitalName}
+                  value={servicecenterName}
                   onChange={(event) => {
                     setName(event.target.value)
                   }}
@@ -104,8 +112,8 @@ export default function BasicModal() {
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
-                  id="hospitalCity"
-                  value={hospitalCity}
+                  id="servicecenterCity"
+                  value={servicecenterCity}
                   label="Tỉnh/Thành phố"
                   onChange={handleChangeCity}
                 >
@@ -117,11 +125,13 @@ export default function BasicModal() {
             </Grid>
             <Grid xs={4}>
               <FormControl sx={{ m: 1, minWidth: 150 }}>
-                <InputLabel id="hospitalDistrict-label">Quận/Huyện</InputLabel>
+                <InputLabel id="servicecenterDistrict-label">
+                  Quận/Huyện
+                </InputLabel>
                 <Select
-                  labelId="hospitalDistrict-label"
-                  id="hospitalDistrict"
-                  value={hospitalDistrict}
+                  labelId="servicecenterDistrict-label"
+                  id="servicecenterDistrict"
+                  value={servicecenterDistrict}
                   label="Quận/Huyện"
                   onChange={handleChangeDistrict}
                 >
@@ -133,11 +143,11 @@ export default function BasicModal() {
             </Grid>
             <Grid xs={4}>
               <FormControl sx={{ m: 1, minWidth: 150 }}>
-                <InputLabel id="hospitalWard-label">Phường/Xã</InputLabel>
+                <InputLabel id="servicecenterWard-label">Phường/Xã</InputLabel>
                 <Select
-                  labelId="hospitalWard-label"
-                  id="hospitalWard"
-                  value={hospitalWard}
+                  labelId="servicecenterWard-label"
+                  id="servicecenterWard"
+                  value={servicecenterWard}
                   label="Phường/Xã"
                   onChange={handleChangeWard}
                 >
@@ -153,7 +163,7 @@ export default function BasicModal() {
                   sx={{ minWidth: 100 }}
                   id="outlined-required"
                   label="Địa chỉ"
-                  value={hospitalAddress}
+                  value={servicecenterAddress}
                   onChange={(event) => {
                     setAddress(event.target.value)
                   }}
@@ -166,7 +176,7 @@ export default function BasicModal() {
                   sx={{ minWidth: 100 }}
                   id="outlined-required"
                   label="Số điện thoại"
-                  value={hospitalPhone}
+                  value={servicecenterPhone}
                   onChange={(event) => {
                     setPhone(event.target.value)
                   }}
@@ -179,7 +189,7 @@ export default function BasicModal() {
                   sx={{ minWidth: 100 }}
                   id="outlined-required"
                   label="Hotline"
-                  value={hospitalHotline}
+                  value={servicecenterHotline}
                   onChange={(event) => {
                     setHotline(event.target.value)
                   }}
@@ -192,9 +202,35 @@ export default function BasicModal() {
                   sx={{ minWidth: 100 }}
                   id="outlined-required"
                   label="Cấp cứu"
-                  value={hospitalEmergency}
+                  value={servicecenterEmergency}
                   onChange={(event) => {
                     setEmergency(event.target.value)
+                  }}
+                />
+              </FormControl>
+            </Grid>
+            <Grid xs={4}>
+              <FormControl sx={{ m: 1, minWidth: 100 }}>
+                <TextField
+                  sx={{ minWidth: 100 }}
+                  id="outlined-required"
+                  label="Chứng nhận BCT"
+                  value={servicecenterCertificate}
+                  onChange={(event) => {
+                    setCer(event.target.value)
+                  }}
+                />
+              </FormControl>
+            </Grid>
+            <Grid xs={4}>
+              <FormControl sx={{ m: 1, minWidth: 100 }}>
+                <TextField
+                  sx={{ minWidth: 100 }}
+                  id="outlined-required"
+                  label="Trạng thái"
+                  value={servicecenterState}
+                  onChange={(event) => {
+                    setState(event.target.value)
                   }}
                 />
               </FormControl>
