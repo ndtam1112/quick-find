@@ -7,13 +7,20 @@ import {
 import App from "./App";
 import ErrorPage from "./ErrorPage";
 import "./index.css";
+import ViewCoupon from "./Presentation/View/Coupon/ViewCoupon";
 import ViewHospital from './Presentation/View/Hospital/ViewHospital'
+import ViewManagerDriver from "./Presentation/View/ManagerDriver/ViewManagerDriver";
 import ViewServiceCenter from "./Presentation/View/ServiceCenter/ViewServiceCenter";
+import ViewManagerService from "./Presentation/View/ManagerService/ViewManagerService";
+import ViewManagerOrder from "./Presentation/View/ManagerOrder/ViewManagerOrder";
+import ViewHome from "./Presentation/View/Home/ViewHome.jsx";
+import Login from './Presentation/View/Login'
+import SignUp from "./Presentation/View/SignUp";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <ViewHome/>,
     errorElement: <ErrorPage />,
   },
   {
@@ -23,6 +30,34 @@ const router = createBrowserRouter([
   {
     path: "/quan-ly-trung-tam",
     element: <ViewServiceCenter />,
+  },
+  {
+    path: "/quan-ly-tai-xe",
+    element: <ViewManagerDriver />,
+  },
+  {
+    path: "/quan-ly-phieu-giam-gia",
+    element: <ViewCoupon />,
+  },
+  {
+    path: "/quan-ly-dich-vu",
+    element: <ViewManagerService />,
+  },
+  {
+    path: "/quan-ly-tai-xe",
+    element: <ViewManagerDriver />,
+  },
+  {
+    path: "/quan-ly-chuyen-xe",
+    element: <ViewManagerOrder />,
+  },
+  {
+    path: "/dang-nhap",
+    element: <Login />,
+  },
+  {
+    path: "/dang-ky",
+    element: <SignUp />,
   },
 ]);
 

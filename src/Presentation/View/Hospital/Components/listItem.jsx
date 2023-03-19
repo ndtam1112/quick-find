@@ -1,27 +1,54 @@
 import * as React from 'react'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
-import DashboardIcon from '@mui/icons-material/Dashboard'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
-import { Link } from 'react-router-dom'
+import { CustomLink } from '../../style'
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital'
+import BusinessIcon from '@mui/icons-material/Business'
+import DriveEtaIcon from '@mui/icons-material/DriveEta'
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
+import PersonPinIcon from '@mui/icons-material/PersonPin'
+import DiscountIcon from '@mui/icons-material/Discount'
 
 export const mainListItems = (
   <React.Fragment>
     <ListItemButton>
       <ListItemIcon>
-        <DashboardIcon />
+        <LocalHospitalIcon />
       </ListItemIcon>
-      <Link to="/quan-ly-benh-vien" underline="none">
-        Quản lý bệnh viện
-      </Link>
+      <CustomLink to="/quan-ly-benh-vien">Quản lý bệnh viện</CustomLink>
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <BusinessIcon />
       </ListItemIcon>
-      <Link to="/quan-ly-trung-tam" underline="none">
-        Quản lý trung tâm
-      </Link>
+      <CustomLink to="/quan-ly-trung-tam">Quản lý trung tâm</CustomLink>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <PersonPinIcon />
+      </ListItemIcon>
+      <CustomLink to="/quan-ly-tai-xe">Quản lý tài xế</CustomLink>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <AttachMoneyIcon />
+      </ListItemIcon>
+      <CustomLink to="/quan-ly-dich-vu">Quản lý dịch vụ</CustomLink>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <DriveEtaIcon />
+      </ListItemIcon>
+      <CustomLink to="/quan-ly-chuyen-xe">Quản lý chuyến xe</CustomLink>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <DiscountIcon />
+      </ListItemIcon>
+      <CustomLink to="/quan-ly-phieu-giam-gia">
+        Quản lý phiếu giảm giá
+      </CustomLink>
     </ListItemButton>
   </React.Fragment>
 )

@@ -2,43 +2,30 @@ import * as React from 'react'
 import { DataGrid, GridDeleteIcon } from '@mui/x-data-grid'
 import { ButtonGroup, IconButton } from '@mui/material'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import DetailHospital from './DetailHospital'
+import DetailCoupon from './DetailCoupon'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'hospitalName', headerName: 'Tên bệnh viện', width: 240 },
-  { field: 'hospitalAddress', headerName: 'Địa chỉ', width: 130 },
+  { field: 'couponName', headerName: 'Mã giảm giá', width: 240 },
   {
-    field: 'hospitalWard',
-    headerName: 'Phường/Xã',
-    width: 160,
-  },
-  {
-    field: 'hospitalDistrict',
-    headerName: 'Quận/Huyện',
-    width: 160,
-  },
-  {
-    field: 'hospitalCity',
-    headerName: 'Tỉnh/Thành phố',
-    width: 160,
-  },
-  {
-    field: 'hospitalPhone',
+    field: 'couponDesMoney',
     type: 'number',
-    headerName: 'Số điện thoại',
+    headerName: 'Giá trị được giảm',
+    width: 130,
+  },
+  {
+    field: 'couponFrom',
+    headerName: 'Từ ngày',
     width: 160,
   },
   {
-    field: 'hospitalHotline',
-    type: 'number',
-    headerName: 'Hotline',
+    field: 'couponTo',
+    headerName: 'Đến ngày',
     width: 160,
   },
   {
-    field: 'hospitalEmergency',
-    type: 'number',
-    headerName: 'Cấp cứu',
+    field: 'couponState',
+    headerName: 'Trạng thái',
     width: 160,
   },
   {
@@ -54,7 +41,7 @@ const columns = [
       return (
         <ButtonGroup>
           <IconButton aria-label="view" onClick={OnClick}>
-            <DetailHospital />
+            <DetailCoupon />
           </IconButton>
           <IconButton aria-label="hide">
             <VisibilityOffIcon />
@@ -81,29 +68,14 @@ const columns = [
 const rows = [
   {
     id: 1,
-    hospitalName: 'Bệnh viện Đa khoa Hồng Ngọc',
-    hospitalAddress: 'Số 55 Yên Ninh',
-    hospitalWard: 'Phường Trúc Bạch',
-    hospitalDistrict: 'Quận Ba Đình',
-    hospitalCity: 'Hà Nội',
-    hospitalPhone: '024 7300 8866',
-    hospitalHotline: '024 7300 8866',
-    hospitalEmergency: '1900 636 555',
-  },
-  {
-    id: 2,
-    hospitalName: 'Bệnh viện Thu Cúc',
-    hospitalAddress: 'Số 55 Yên Ninh',
-    hospitalWard: 'Phường Trúc Bạch',
-    hospitalDistrict: 'Quận Ba Đình',
-    hospitalCity: 'Hà Nội',
-    hospitalPhone: '024 7300 8866',
-    hospitalHotline: '024 7300 8866',
-    hospitalEmergency: '1900 636 555',
+    couponName: 'THANG3',
+    couponDesMoney: '30000',
+    couponFrom: '01/03/2023',
+    couponTo: '30/03/2023',
+    couponState: 'Đã kích hoạt',
   },
 ]
-
-const Table = () => {
+const TableCoupon = () => {
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <DataGrid
@@ -117,4 +89,4 @@ const Table = () => {
   )
 }
 
-export default Table
+export default TableCoupon

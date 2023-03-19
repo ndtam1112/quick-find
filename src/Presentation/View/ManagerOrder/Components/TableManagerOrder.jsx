@@ -2,31 +2,36 @@ import * as React from 'react'
 import { DataGrid, GridDeleteIcon } from '@mui/x-data-grid'
 import { ButtonGroup, IconButton } from '@mui/material'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import DetailServiceCenter from './DetailServiceCenter'
+import DetailManagerOrder from './DetailManagerOrder'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'servicecenterName', headerName: 'Tên trung tâm', width: 240 },
-  { field: 'servicecenterAddress', headerName: 'Địa chỉ', width: 130 },
+  { field: 'orderCode', headerName: 'Mã đơn hàng', width: 240 },
+  { field: 'orderCustomer', headerName: 'Khách hàng', width: 130 },
   {
-    field: 'servicecenterWard',
-    headerName: 'Phường/Xã',
-    width: 160,
-  },
-  {
-    field: 'servicecenterDistrict',
-    headerName: 'Quận/Huyện',
-    width: 160,
-  },
-  {
-    field: 'servicecenterCity',
-    headerName: 'Tỉnh/Thành phố',
-    width: 160,
-  },
-  {
-    field: 'servicecenterPhone',
-    type: 'number',
+    field: 'customerPhone',
     headerName: 'Số điện thoại',
+    width: 160,
+  },
+  {
+    field: 'orderFrom',
+    headerName: 'Điểm đón',
+    width: 160,
+  },
+  {
+    field: 'orderTo',
+    headerName: 'Điểm đến',
+    width: 160,
+  },
+  {
+    field: 'orderDistance',
+    type: 'number',
+    headerName: 'Khoảng cách',
+    width: 160,
+  },
+  {
+    field: 'orderState',
+    headerName: 'Trạng thái',
     width: 160,
   },
   // {
@@ -46,11 +51,7 @@ const columns = [
   //   headerName: 'Chứng nhận BCT',
   //   width: 160,
   // },
-  {
-    field: 'servicecenterState',
-    headerName: 'Trạng thái',
-    width: 160,
-  },
+
   {
     field: ``,
     width: 150,
@@ -64,7 +65,7 @@ const columns = [
       return (
         <ButtonGroup>
           <IconButton aria-label="view" onClick={OnClick}>
-            <DetailServiceCenter />
+            <DetailManagerOrder />
           </IconButton>
           <IconButton aria-label="hide">
             <VisibilityOffIcon />
@@ -91,46 +92,20 @@ const columns = [
 const rows = [
   {
     id: 1,
-    servicecenterName: 'Trung tâm cấp cứu 115 toàn quốc',
-    servicecenterAddress: '03 Đường 35A Trịnh Quang Nghị',
-    servicecenterWard: 'Phường 7',
-    servicecenterDistrict: 'Quận 8',
-    servicecenterCity: 'TP Hồ Chí Minh',
-    servicecenterPhone: '0704 115 115',
+    orderCode: 'DH-001',
+    orderCustomer: 'Nguyễn Văn A',
+    customerPhone: '0704 115 115',
+    orderFrom: 'Số 1, quận 2, TP Hồ Chí Minh',
+    orderTo: 'Bệnh viện Bạch Mai',
+    orderDistance: '10km',
     // servicecenterHotline: '024 7300 8866',
     // servicecenterEmergency: '1900 636 555',
     // servicecenterCertificate: '',
-    servicecenterState: 'Đã duyệt',
-  },
-  {
-    id: 2,
-    servicecenterName: 'Trung tâm cấp cứu vận chuyển người bệnh Bắc Việt',
-    servicecenterAddress: '48 Tăng Bạt Hổ',
-    servicecenterWard: 'Phường Hai Bà Trưng',
-    servicecenterDistrict: 'Quận Hai Bà Trưng',
-    servicecenterCity: 'Hà Nội',
-    servicecenterPhone: '024 33.911.911',
-    // servicecenterHotline: '0837.911.911',
-    // servicecenterEmergency: '*8911',
-    // servicecenterCertificate: '',
-    servicecenterState: 'Chưa duyệt',
-  },
-  {
-    id: 3,
-    servicecenterName: 'Công ty TNHH Cấp Cứu Vàng',
-    servicecenterAddress: 'Số 30 Nguyễn Kim',
-    servicecenterWard: 'Phường 6',
-    servicecenterDistrict: 'Quận 10',
-    servicecenterCity: 'TP Hồ Chí Minh',
-    servicecenterPhone: '',
-    // servicecenterHotline: '0912 115 115',
-    // servicecenterEmergency: '',
-    // servicecenterCertificate: '',
-    servicecenterState: 'Đã duyệt',
+    orderState: 'Chưa xử lý',
   },
 ]
 
-const TableServiceCenter = () => {
+const TableManagerOrder = () => {
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <DataGrid
@@ -144,4 +119,4 @@ const TableServiceCenter = () => {
   )
 }
 
-export default TableServiceCenter
+export default TableManagerOrder

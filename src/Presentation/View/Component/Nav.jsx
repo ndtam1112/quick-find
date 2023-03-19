@@ -9,14 +9,15 @@ import List from '@mui/material/List'
 import Typography from '@mui/material/Typography'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
-import Badge from '@mui/material/Badge'
 import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
-import NotificationsIcon from '@mui/icons-material/Notifications'
 import { mainListItems } from '../Hospital/Components/listItem'
 import { Link } from 'react-router-dom'
+import { AccountCircle } from '@mui/icons-material'
+import { Menu, MenuItem } from '@mui/material'
+import { CustomLink } from '../style'
 
-const drawerWidth = 240
+const drawerWidth = 260
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -68,6 +69,20 @@ const Nav = () => {
   const toggleDrawer = () => {
     setOpen(!open)
   }
+  const [auth, setAuth] = React.useState(true)
+  const [anchorEl, setAnchorEl] = React.useState(null)
+
+  const handleChange = (event) => {
+    setAuth(event.target.checked)
+  }
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
@@ -95,15 +110,42 @@ const Nav = () => {
               variant="h6"
               color="inherit"
               noWrap
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1, textDecoration: 'none' }}
             >
-              <Link to="/">Trang chủ</Link>
+              <CustomLink to="/">Trang chủ</CustomLink>
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleMenu}
+              color="inherit"
+            >
+              <AccountCircle />
             </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>Thông tin cá nhân</MenuItem>
+              <MenuItem onClick={handleClose}>
+                <CustomLink to="/dang-nhap" style={{ color: 'black' }}>
+                  Đăng xuất
+                </CustomLink>
+              </MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
